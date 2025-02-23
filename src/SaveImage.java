@@ -53,15 +53,33 @@ public class SaveImage {
     // Fungsi untuk memilih warna blok berdasarkan huruf
     private static Color getColorForSymbol(char symbol) {
         switch (symbol) {
-            case 'A': return Color.RED;
-            case 'B': return Color.BLUE;
-            case 'C': return Color.GREEN;
-            case 'D': return Color.ORANGE;
-            case 'E': return Color.MAGENTA;
-            case 'F': return Color.CYAN;
-            case 'G': return Color.PINK;
-            case 'H': return Color.YELLOW;
-            default: return Color.LIGHT_GRAY;
+            case 'A': return new Color(255, 0, 0);      
+            case 'B': return new Color(0, 0, 255);      
+            case 'C': return new Color(0, 205, 102);    
+            case 'D': return new Color(255, 165, 0);    
+            case 'E': return new Color(128, 0, 128);    
+            case 'F': return new Color(64, 224, 208);   
+            case 'G': return new Color(220, 20, 60);    
+            case 'H': return new Color(34, 139, 34);    
+            case 'I': return new Color(255, 20, 147);   
+            case 'J': return new Color(0, 0, 128);      
+            case 'K': return new Color(139, 69, 19);    
+            case 'L': return new Color(50, 205, 50);    
+            case 'M': return new Color(255, 0, 255);    
+            case 'N': return new Color(0, 128, 128);    
+            case 'O': return new Color(255, 215, 0);    
+            case 'P': return new Color(75, 0, 130);     
+            case 'Q': return new Color(128, 0, 0);      
+            case 'R': return new Color(135, 206, 235);  
+            case 'S': return new Color(255, 140, 0);    
+            case 'T': return new Color(138, 43, 226);   
+            case 'U': return new Color(128, 128, 0);    
+            case 'V': return new Color(255, 127, 80);   
+            case 'W': return new Color(0, 191, 255);    
+            case 'X': return new Color(139, 0, 0);      
+            case 'Y': return new Color(0, 255, 127);    
+            case 'Z': return new Color(148, 0, 211);    
+            default: return Color.GRAY;
         }
     }
 }

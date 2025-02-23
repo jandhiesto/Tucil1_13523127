@@ -100,7 +100,21 @@ public class Solver {
             System.out.println("Error: Jumlah blok tidak sesuai! Diharapkan: " + P + ", tetapi ditemukan: " + blocks.size());
             System.exit(0);
         }
-        
+        // Setelah membaca semua blok, hitung jumlah total sel yang ditempati oleh blok
+        int totalBlockCells = 0;
+        for (Block block : blocks) {
+            totalBlockCells += block.coordinates.size();
+        }
+
+        // Validasi: Pastikan total sel blok sama dengan ukuran papan
+        int totalBoardCells = N * M;
+        if (totalBlockCells < totalBoardCells) {
+            System.out.println("Error: Blok kurang! Total sel blok = " + totalBlockCells + ", tetapi papan memerlukan " + totalBoardCells);
+            System.exit(0);
+        } else if (totalBlockCells > totalBoardCells) {
+            System.out.println("Error: Blok lebih! Total sel blok = " + totalBlockCells + ", tetapi papan hanya memiliki " + totalBoardCells);
+            System.exit(0);
+        }
     }
     // Fungsi untuk memastikan blok memiliki minimal satu huruf yang valid
     private boolean hasValidCharacter(List<String> shape) {
@@ -128,10 +142,8 @@ public class Solver {
     // Algoritma Bruteforce
     private boolean recursiveSolve(int index) {
         if (index == blocks.size()) return isValidBoard();
-    
         Block block = blocks.get(index);
         List<Block> orientations = block.generateOrientations();
-    
         for (Block orient : orientations) {  
             for (int a = 0; a < N; a++) {
                 for (int c = 0; c < M; c++) {
@@ -139,14 +151,15 @@ public class Solver {
                         placeBlock(orient, a, c, block.symbol);
                         clearScreen();
                         printBoard();
-
-                        try { Thread.sleep(0); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                        try { Thread.sleep(0); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } //ubah Thread.sleep untuk perubahan kecepatan animasi
                         
-                        if (recursiveSolve(index + 1)) return true;
+                        if (recursiveSolve(index + 1)){
+                            return true;
+                        } 
                         removeBlock(orient, a, c);
                         clearScreen();
                         printBoard();
-                        try { Thread.sleep(0); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+                        try { Thread.sleep(0); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } //ubah Thread.sleep untuk perubahan kecepatan animasi
                         iterationCount++;
                     }
                 }

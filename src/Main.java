@@ -23,7 +23,6 @@ public class Main {
                 String saveImage = scanner.nextLine();
                 if (saveImage.equalsIgnoreCase("Y")) {
                     SaveImage.savePuzzleImage(solver.getBoard(), "../test/" + fileName1 +".png");
-                    
                 }                
             }
             else {
