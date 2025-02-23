@@ -38,3 +38,13 @@ dengan N dan M adalah dimensi panjang dan lebar papan,
 P adalah jumlah blok pada masukan,
 S adalah pilihan mode puzzle (DEFAULT/CUSTOM/PYRAMID). Namun program ini hanya mendukung mode DEFAULT,
 serta diikuti dengan konfigurasi P blok yang disusun dengan huruf abjad kapital (A-Z).
+## Struktur Direktori
+```bash
+TucilStima1_13523127/
+│-- bin/          # Folder berisi file hasil kompilasi
+|-- doc/          # Folder berisi dokumen laporan
+│-- src/          # Folder berisi source code Java
+│-- test/         # Folder berisi file test berupa .txt serta hasil output gambar
+|-- LICENSE       # File keterrangan lisensi
+│-- README.md     # File dokumentasi
+```
