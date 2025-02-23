@@ -10,6 +10,7 @@ Pastikan Anda memiliki Java Development Kit (JDK) terinstal pada sistem Anda.
 ```bash
 # Clone repositori ini ke komputer Anda:
 git clone https://github.com/jandhiesto/TucilStima1_13523127.git
+
 # Masuk ke direktori proyek
 cd TucilStima1_13523127
 ```
@@ -17,18 +18,18 @@ cd TucilStima1_13523127
 ```bash
 # Buka terminal atau command prompt.
 cd bin
+
 # Arahkan direktori ke folder bin, yang berisi file hasil kompilasi:
 java Main
+
 # Format Masukan
 ## Masukan berupa nama sebuah file .txt yang ada pada folder test. Format masukan adalah sebagai berikut :
-
 N M P
 S
 puzzle_1_shape
 puzzle_2_shape
 …
 puzzle_P_shape
-
 dengan N dan M adalah dimensi panjang dan lebar papan,
 P adalah jumlah blok pada masukan,
 S adalah pilihan mode puzzle (DEFAULT/CUSTOM/PYRAMID). Namun program ini hanya mendukung mode DEFAULT,
