@@ -48,3 +48,9 @@ TucilStima1_13523127/
 |-- LICENSE       # File keterrangan lisensi
 │-- README.md     # File dokumentasi
 ```
+# Catatan
+- Jika ada error saat menjalankan program, pastikan Anda berada di dalam direktori proyek yang benar.
+- Pastikan semua dependensi sudah terinstal dengan benar.
+- Jika terjadi masalah dengan input, periksa kembali format file input sesuai spesifikasi.
+# Lisensi
+Program ini dibuat untuk keperluan akademik dan bebas digunakan serta dimodifikasi sesuai kebutuhan.
