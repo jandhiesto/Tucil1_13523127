@@ -2,8 +2,8 @@
 DEFAULT
 A
 AA
-B
 BB
+B
 C
 CC
 D
@@ -11,7 +11,7 @@ DD
 EE
 EE
 E
-FF
-FF
 F
+FF
+FF
 GGG

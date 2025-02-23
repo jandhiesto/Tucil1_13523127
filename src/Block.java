@@ -90,7 +90,7 @@ public class Block {
         }
         return rotated;
     }
-    // Cerminkan bentuk
+    // Cerminkan blok
     private char[][] reflect(char[][] matrix) {
         int rows = matrix.length, cols = matrix[0].length;
         char[][] reflected = new char[rows][cols];

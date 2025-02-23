@@ -1,8 +1,8 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class SaveImage {
     private static final int CELL_SIZE = 50; // Ukuran tiap sel
@@ -41,7 +41,6 @@ public class SaveImage {
 
         g2d.dispose();
 
-        // Simpan sebagai file PNG
         try {
             ImageIO.write(image, "png", new File(filename));
             System.out.println("Gambar solusi disimpan sebagai " + filename);

@@ -135,7 +135,7 @@ public class Solver {
 
     // Memulai pencarian solusi
     public boolean solve() {
-        System.out.println("Memulai pencarian solusi...");
+        System.out.println("Pencarian sedang berlangsung");
         return recursiveSolve(0);
     }
 
