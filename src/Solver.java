@@ -19,7 +19,7 @@ public class Solver {
     private void readInput(String fileName) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
 
-        // Baca ukuran papan N x M dan jumlah blok P
+        // Baca N dan M untuk ukuran papan, dan P untuk jumlah blok
         String[] dims = br.readLine().split(" ");
         N = Integer.parseInt(dims[0]);
         M = Integer.parseInt(dims[1]);
@@ -29,10 +29,16 @@ public class Solver {
         String type = br.readLine();
 
         // Inisialisasi papan
-        board = new char[N][M];
-        for (char [] row : board) {
-            Arrays.fill(row, '.');
+        if (N <= 0 || M <= 0){
+            System.out.println("Error: Ukuran papan tidak valid");
+            System.exit(0);
+        } else {
+            board = new char[N][M];
+            for (char [] row : board) {
+                Arrays.fill(row, '.');
+            }
         }
+        
 
         // Menyimpan blok yang ada
         blocks = new ArrayList<>();
@@ -50,7 +56,8 @@ public class Solver {
     
             // Validasi: Pastikan hanya huruf kapital A - Z
             if (!Character.isUpperCase(firstChar) || firstChar < 'A' || firstChar > 'Z') {
-                throw new IllegalArgumentException("Error: Karakter blok harus berupa huruf kapital A-Z! Ditemukan: " + firstChar);
+                System.out.println("Error: Karakter blok harus berupa huruf kapital A-Z! Ditemukan: " + firstChar);
+                System.exit(0);
             }
     
             // Jika menemukan blok baru (karakter berubah)
@@ -58,7 +65,8 @@ public class Solver {
                 if (!currentShape.isEmpty()) {
                     // Validasi: Pastikan blok tidak kosong
                     if (!hasValidCharacter(currentShape)) {
-                        throw new IllegalArgumentException("Error: Blok " + currentSymbol + " tidak memiliki bentuk valid!");
+                        System.out.println("Error: Blok " + currentSymbol + " tidak memiliki bentuk valid!");
+                        System.exit(0);
                     }
     
                     blocks.add(new Block(currentSymbol.charAt(0), new ArrayList<>(currentShape)));
@@ -66,9 +74,10 @@ public class Solver {
                 }
                 currentSymbol = String.valueOf(firstChar);
     
-                // **Validasi: Pastikan huruf tidak duplikat**
+                // Validasi: Pastikan huruf tidak duplikat
                 if (usedSymbols.contains(currentSymbol.charAt(0))) {
-                    throw new IllegalArgumentException("Error: Blok " + currentSymbol + " sudah ada! Tidak boleh ada duplikasi.");
+                    System.out.println("Error: Blok " + currentSymbol + " sudah ada! Tidak boleh ada duplikasi.");
+                    System.exit(0);
                 }
                 usedSymbols.add(currentSymbol.charAt(0));
             }
@@ -78,16 +87,18 @@ public class Solver {
         // Tambahkan blok terakhir yang belum tersimpan
         if (!currentShape.isEmpty()) {
             if (!hasValidCharacter(currentShape)) {
-                throw new IllegalArgumentException("Error: Blok " + currentSymbol + " tidak memiliki bentuk valid!");
+                System.out.println("Error: Blok " + currentSymbol + " tidak memiliki bentuk valid!");
+                System.exit(0);
             }
             blocks.add(new Block(currentSymbol.charAt(0), new ArrayList<>(currentShape)));
         }
     
         br.close();
     
-        // **Validasi: Pastikan jumlah blok sesuai dengan P**
+        // Validasi: Pastikan jumlah blok sesuai dengan P
         if (blocks.size() != P) {
-            throw new IllegalArgumentException("Error: Jumlah blok tidak sesuai! Diharapkan: " + P + ", tetapi ditemukan: " + blocks.size());
+            System.out.println("Error: Jumlah blok tidak sesuai! Diharapkan: " + P + ", tetapi ditemukan: " + blocks.size());
+            System.exit(0);
         }
         
     }
