@@ -56,7 +56,7 @@ public class Solver {
     
             // Validasi: Pastikan hanya huruf kapital A - Z
             if (!Character.isUpperCase(firstChar) || firstChar < 'A' || firstChar > 'Z') {
-                System.out.println("Error: Karakter blok harus berupa huruf kapital A-Z! Ditemukan: " + firstChar);
+                System.out.println("Error: Karakter blok "+ firstChar + "bukan A-Z. ");
                 System.exit(0);
             }
     
@@ -65,7 +65,7 @@ public class Solver {
                 if (!currentShape.isEmpty()) {
                     // Validasi: Pastikan blok tidak kosong
                     if (!hasValidCharacter(currentShape)) {
-                        System.out.println("Error: Blok " + currentSymbol + " tidak memiliki bentuk valid!");
+                        System.out.println("Error: Blok " + currentSymbol + " tidak valid!");
                         System.exit(0);
                     }
     
@@ -76,7 +76,7 @@ public class Solver {
     
                 // Validasi: Pastikan huruf tidak duplikat
                 if (usedSymbols.contains(currentSymbol.charAt(0))) {
-                    System.out.println("Error: Blok " + currentSymbol + " sudah ada! Tidak boleh ada duplikasi.");
+                    System.out.println("Error: Blok " + currentSymbol + " duplikasi.");
                     System.exit(0);
                 }
                 usedSymbols.add(currentSymbol.charAt(0));
@@ -97,7 +97,7 @@ public class Solver {
     
         // Validasi: Pastikan jumlah blok sesuai dengan P
         if (blocks.size() != P) {
-            System.out.println("Error: Jumlah blok tidak sesuai! Diharapkan: " + P + ", tetapi ditemukan: " + blocks.size());
+            System.out.println("Error: Jumlah blok tidak sesuai. Masukan P=" + P + ", namun terdapat " + blocks.size() + " blok.");
             System.exit(0);
         }
         // Setelah membaca semua blok, hitung jumlah total sel yang ditempati oleh blok

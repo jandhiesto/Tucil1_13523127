@@ -43,7 +43,7 @@ public class SaveImage {
 
         try {
             ImageIO.write(image, "png", new File(filename));
-            System.out.println("Gambar solusi disimpan sebagai " + filename);
+            System.out.println("Gambar berhasil disimpan pada " + filename);
         } catch (IOException e) {
             System.err.println("Gagal menyimpan gambar: " + e.getMessage());
         }
